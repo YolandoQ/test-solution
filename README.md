@@ -8,7 +8,8 @@ Implementar em laravel uma API Rest para gerenciar clientes.
 ## Tecnologias
 
 - Laravel - Laravel é um framework de aplicações web com sintaxe expressiva e elegante.
-- JQuery - jQuery é uma biblioteca JavaScript rápida, pequena e rica em recursos.
+- JQuery - JQuery é uma biblioteca JavaScript rápida, pequena e rica em recursos.
+- MySQL - Um sistema open-source de gerenciamento de base de dados relacional.
 - Docker - O Docker permite que você separe seus aplicativos de sua infraestrutura para que você possa entregar software rapidamente.
 
 ## Instalação
@@ -40,9 +41,15 @@ Com o container rodando, execute esse comando na raiz do projeto:
 ```sh
 docker exec -it app-udp8 bash
 ```
+##### Configure o .env
+Se não tiver alterado nada, o .env ja vai estar configurado depois de rodar esse comando:
+
+```sh
+cp .env.example .env
+```
 
 ##### Instale as dependências
-Após entrar no container você pode executar:
+Agora você pode executar:
 
 ```sh
 composer install
@@ -66,4 +73,4 @@ php artisan migrate
 php artisan db:seed
 ```
 
-Pronto, agora é só partir pro abraço, acesse o porjeto na porta configurar(localhost:8000, se nada tiver sido alterado nos arquivos de configuração do docker).
+Pronto, agora é só partir pro abraço, acesse o projeto na porta configurar(localhost:8000 e localhost:8080 - phpmyadmin(root: root, senha: secret) para acompamento-, se nada tiver sido alterado nos arquivos de configuração do docker).
