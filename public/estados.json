@@ -1,0 +1,191 @@
+[
+    {
+        "id_uf": "1",
+        "uf_sigla": "AC",
+        "uf_ibge": "12",
+        "uf_nome": "ACRE",
+        "uf_concordancia": "Estado do"
+    },
+    {
+        "id_uf": "2",
+        "uf_sigla": "AL",
+        "uf_ibge": "27",
+        "uf_nome": "ALAGOAS",
+        "uf_concordancia": "Estado do"
+    },
+    {
+        "id_uf": "3",
+        "uf_sigla": "AM",
+        "uf_ibge": "13",
+        "uf_nome": "AMAZONAS",
+        "uf_concordancia": "Estado do"
+    },
+    {
+        "id_uf": "4",
+        "uf_sigla": "AP",
+        "uf_ibge": "16",
+        "uf_nome": "AMAPA",
+        "uf_concordancia": "Estado do"
+    },
+    {
+        "id_uf": "5",
+        "uf_sigla": "BA",
+        "uf_ibge": "29",
+        "uf_nome": "BAHIA",
+        "uf_concordancia": "Estado da"
+    },
+    {
+        "id_uf": "6",
+        "uf_sigla": "CE",
+        "uf_ibge": "23",
+        "uf_nome": "CEARA",
+        "uf_concordancia": "Estado do"
+    },
+    {
+        "id_uf": "7",
+        "uf_sigla": "DF",
+        "uf_ibge": "53",
+        "uf_nome": "DISTRITO FEDERAL",
+        "uf_concordancia": null
+    },
+    {
+        "id_uf": "9",
+        "uf_sigla": "ES",
+        "uf_ibge": "32",
+        "uf_nome": "ESPIRITO SANTO",
+        "uf_concordancia": "Estado do"
+    },
+    {
+        "id_uf": "10",
+        "uf_sigla": "GO",
+        "uf_ibge": "52",
+        "uf_nome": "GOIAS",
+        "uf_concordancia": "Estado de"
+    },
+    {
+        "id_uf": "11",
+        "uf_sigla": "MA",
+        "uf_ibge": "21",
+        "uf_nome": "MARANHAO",
+        "uf_concordancia": "Estado do"
+    },
+    {
+        "id_uf": "12",
+        "uf_sigla": "MG",
+        "uf_ibge": "31",
+        "uf_nome": "MINAS GERAIS",
+        "uf_concordancia": "Estado de"
+    },
+    {
+        "id_uf": "13",
+        "uf_sigla": "MS",
+        "uf_ibge": "50",
+        "uf_nome": "MATO GROSSO DO SUL",
+        "uf_concordancia": "Estado do"
+    },
+    {
+        "id_uf": "14",
+        "uf_sigla": "MT",
+        "uf_ibge": "51",
+        "uf_nome": "MATO GROSSO",
+        "uf_concordancia": "Estado do"
+    },
+    {
+        "id_uf": "15",
+        "uf_sigla": "PA",
+        "uf_ibge": "15",
+        "uf_nome": "PARA",
+        "uf_concordancia": "Estado do"
+    },
+    {
+        "id_uf": "16",
+        "uf_sigla": "PB",
+        "uf_ibge": "25",
+        "uf_nome": "PARAIBA",
+        "uf_concordancia": "Estado da"
+    },
+    {
+        "id_uf": "17",
+        "uf_sigla": "PE",
+        "uf_ibge": "26",
+        "uf_nome": "PERNAMBUCO",
+        "uf_concordancia": "Estado de"
+    },
+    {
+        "id_uf": "18",
+        "uf_sigla": "PI",
+        "uf_ibge": "22",
+        "uf_nome": "PIAUI",
+        "uf_concordancia": "Estado do"
+    },
+    {
+        "id_uf": "19",
+        "uf_sigla": "PR",
+        "uf_ibge": "41",
+        "uf_nome": "PARANA",
+        "uf_concordancia": "Estado do"
+    },
+    {
+        "id_uf": "20",
+        "uf_sigla": "RJ",
+        "uf_ibge": "33",
+        "uf_nome": "RIO DE JANEIRO",
+        "uf_concordancia": "Estado do"
+    },
+    {
+        "id_uf": "21",
+        "uf_sigla": "RN",
+        "uf_ibge": "24",
+        "uf_nome": "RIO GRANDE DO NORTE",
+        "uf_concordancia": "Estado do"
+    },
+    {
+        "id_uf": "22",
+        "uf_sigla": "RO",
+        "uf_ibge": "11",
+        "uf_nome": "RONDONIA",
+        "uf_concordancia": "Estado de"
+    },
+    {
+        "id_uf": "23",
+        "uf_sigla": "RR",
+        "uf_ibge": "14",
+        "uf_nome": "RORAIMA",
+        "uf_concordancia": "Estado de"
+    },
+    {
+        "id_uf": "24",
+        "uf_sigla": "RS",
+        "uf_ibge": "43",
+        "uf_nome": "RIO GRANDE DO SUL",
+        "uf_concordancia": "Estado do"
+    },
+    {
+        "id_uf": "25",
+        "uf_sigla": "SC",
+        "uf_ibge": "42",
+        "uf_nome": "SANTA CATARINA",
+        "uf_concordancia": "Estado de"
+    },
+    {
+        "id_uf": "26",
+        "uf_sigla": "SE",
+        "uf_ibge": "28",
+        "uf_nome": "SERGIPE",
+        "uf_concordancia": "Estado de"
+    },
+    {
+        "id_uf": "27",
+        "uf_sigla": "SP",
+        "uf_ibge": "35",
+        "uf_nome": "SAO PAULO",
+        "uf_concordancia": "Estado de"
+    },
+    {
+        "id_uf": "28",
+        "uf_sigla": "TO",
+        "uf_ibge": "17",
+        "uf_nome": "TOCANTINS",
+        "uf_concordancia": "Estado do"
+    }
+]

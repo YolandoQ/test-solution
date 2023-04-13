@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\ResourcesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +20,11 @@ Route::prefix('/cliente')->group(function () {
     Route::post("/cadastrar", [ClientController::class, 'create'])->name("post.cadastrar");
     Route::put("/atualizar/{id}", [ClientController::class, 'update'])->name("put.atualizar");
     Route::delete("/deletar/{id}", [ClientController::class, 'delete'])->name("delete.delete");
+});
+
+Route::prefix('/resources')->group(function () {
+    Route::get('/cidades', [ResourcesController::class, 'listCidades'])->name('list.cidades.resources');
+    Route::get('/estados', [ResourcesController::class, 'listEstados'])->name('list.estados.resources');
 });
 
 Route::fallback(function ($e) {

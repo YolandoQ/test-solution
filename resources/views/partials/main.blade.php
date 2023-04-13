@@ -44,7 +44,7 @@
               </div>
                 <nav class="navbar navbar-expand-lg">
                     <div class="container">
-                        <a class="navbar-brand" href="index.html">
+                        <a class="navbar-brand" href="/">
                             <img src="{{asset('img/logo_upd8.png')}}" alt=":upd8" height="70px">
                         </a>
                         <a href="ticket.html" class="btn custom-btn d-lg-none ms-auto me-4">Contato</a>

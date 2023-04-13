@@ -173,6 +173,7 @@ class ClientController extends Controller
             $clientsData->each(function($uniqueClient) {
                
                 $uniqueClient->sexo = ucfirst($uniqueClient->sexo);
+                $uniqueClient->unformatted_date = $uniqueClient->data_nascimento;
                 $uniqueClient->data_nascimento = Carbon::createFromFormat("Y-m-d", $uniqueClient->data_nascimento)->format("d/m/Y");
             });
 

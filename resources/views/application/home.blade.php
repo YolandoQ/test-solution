@@ -63,15 +63,15 @@
                                             <label for="estado">Estado:</label>
                                             <select class="form-select" id="estado" name="estado" required>
                                                 <option selected>Selecione o Estado do cliente</option>
-                                                <option value="CE">CE</option>
+                                                {{-- <option value="CE">CE</option> --}}
                                               </select>
                                         </div>
                                         <div class="col-lg-6 col-md-6 col-12">
                                             <label for="cidade">Cidade:</label>
                                             <select class="form-select" id="cidade" name="cidade" required>
                                                 <option selected>Selecione a cidade do cliente</option>
-                                                <option value="Fortaleza">Fortaleza</option>
-                                                <option value="Eusébio">Eusébio</option>
+                                                {{-- <option value="Fortaleza">Fortaleza</option>
+                                                <option value="Eusébio">Eusébio</option> --}}
                                               </select>
                                         </div>
                                     </div>
@@ -104,7 +104,7 @@
                                         </div>
                                         <div class="row mt-2">
                                             <div class="col-lg-4 col-md-4 col-4">
-                                                <label for="sexo">Sexo:</label>
+                                                <label for="sexo-consulta">Sexo:</label>
                                                 <select class="form-select" id="sexo-consulta" name="sexo" required>
                                                     <option selected disabled>Consulta por sexo do cliente</option>
                                                     <option value="masculino">Masculino</option>
@@ -112,18 +112,16 @@
                                                   </select>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-4">
-                                                <label for="estado">Estado:</label>
+                                                <label for="estado-consulta">Estado:</label>
                                                 <select class="form-select" id="estado-consulta" name="estado" required>
                                                     <option selected disabled>Consulta por Estado do cliente</option>
-                                                    <option value="CE">CE</option>
                                                   </select>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-4">
-                                                <label for="cidade">Cidade:</label>
+                                                <label for="cidade-consulta">Cidade:</label>
                                                 <select class="form-select" id="cidade-consulta" name="cidade" required>
                                                     <option selected disabled>Consulta por cidade do cliente</option>
-                                                    <option value="Fortaleza">Fortaleza</option>
-                                                    <option value="Eusébio">Eusébio</option>
+
                                                   </select>
                                             </div>
                                         </div>
@@ -234,6 +232,125 @@
                 getPage("page=" + 1, form_data);
 
             });
+
+            // Cadastro
+            $("#estado").change(function() {
+                if ($(this).val()) {
+                    let sigla_estado = $(this).val();
+
+                    $.ajax({
+                        method: "GET",
+                        url: `/api/resources/cidades/?uf=${sigla_estado}`,
+                        success: (e) => {
+                            $("#cidade").html("");
+                            $("#cidade").append(
+                                `<option value="" selected="">Selecione a cidade do cliente</option>`
+                            )
+                            e.data.forEach(element => {
+                                $("#cidade").append(
+                                    `<option value="${element.m_nome}">${element.m_nome}</option>`
+                                )
+                            });
+
+                        }
+                    })
+                }
+            })
+
+            $.ajax({
+                method: "GET",
+                url: `/api/resources/estados`,
+                success: (e) => {
+                    e.data.forEach(estado => {
+                        $("#estado").append(
+                            `<option value="${estado.uf_sigla}">${estado.uf_sigla}</option>`
+                        )
+                        if (estado.uf_sigla == "CE") {
+                            $("#estado").append(
+                                `<option value="${estado.uf_sigla}" selected>${estado.uf_sigla}</option>`
+                            )
+                        }
+                    })
+
+                    $.ajax({
+                        method: "GET",
+                        url: "/api/resources/cidades?uf=CE",
+                        success: (e) => {
+                            e.data.forEach(cidade => {
+                                $("#cidade").append(
+                                    `<option value="${cidade.m_nome}">${cidade.m_nome}</option>`
+                                )
+                            })
+                        },
+                        error: (e) => {
+                            showToast(JSON.parse(e.responseText))
+                        }
+                    })
+                },
+                error: (e) => {
+                    showToast(JSON.parse(e.responseText))
+                }
+            })
+
+            // Consulta
+            $("#estado-consulta").change(function() {
+                if ($(this).val()) {
+                    let sigla_estado = $(this).val();
+
+                    $.ajax({
+                        method: "GET",
+                        url: `/api/resources/cidades/?uf=${sigla_estado}`,
+                        success: (e) => {
+                            $("#cidade-consulta").html("");
+                            $("#cidade-consulta").append(
+                                `<option value="" selected="">Consulta por cidade do cliente</option>`
+                            )
+                            e.data.forEach(element => {
+                                $("#cidade-consulta").append(
+                                    `<option value="${element.m_nome}">${element.m_nome}</option>`
+                                )
+                            });
+
+                        }
+                    })
+                }
+            })
+
+            $.ajax({
+                method: "GET",
+                url: `/api/resources/estados`,
+                success: (e) => {
+                    e.data.forEach(estado => {
+                        $("#estado-consulta").append(
+                            `<option value="${estado.uf_sigla}">${estado.uf_sigla}</option>`
+                        )
+                        if (estado.uf_sigla == "CE") {
+                            $("#estado-consulta").append(
+                                `<option value="${estado.uf_sigla}" selected>${estado.uf_sigla}</option>`
+                            )
+                        }
+                    })
+
+                    $.ajax({
+                        method: "GET",
+                        url: "/api/resources/cidades?uf=CE",
+                        success: (e) => {
+                            e.data.forEach(cidade => {
+                                $("#cidade-consulta").append(
+                                    `<option value="${cidade.m_nome}">${cidade.m_nome}</option>`
+                                )
+                            })
+                        },
+                        error: (e) => {
+                            showToast(JSON.parse(e.responseText))
+                        }
+                    })
+                },
+                error: (e) => {
+                    showToast(JSON.parse(e.responseText))
+                }
+            })
+
         });
 
     </script> 

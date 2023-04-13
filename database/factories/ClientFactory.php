@@ -19,8 +19,8 @@ class ClientFactory extends Factory
             'data_nascimento' => $this->faker->date('Y-m-d', '-18 years'),
             'sexo' => $this->faker->randomElement(['masculino', 'feminino']),
             'endereco' => $this->faker->address,
-            'cidade' => $this->faker->city,
-            'estado' => $this->faker->stateAbbr,
+            'cidade' => strtoupper($this->faker->city),
+            'estado' => strtoupper($this->faker->state),
         ];
     }
 }

@@ -54,18 +54,16 @@
                                     </div>
                                     <div class="row mt-2">
                                         <div class="col-lg-6 col-md-6 col-12">
-                                            <label for="estado">Estado:</label>
+                                            <label for="estado-update">Estado:</label>
                                             <select class="form-select" id="estado-update" name="estado">
-                                                <option selected>Selecione o Estado do cliente</option>
-                                                <option value="CE">CE</option>
+                                                <option selected>Atualize o Estado do cliente</option>
                                               </select>
                                         </div>
                                         <div class="col-lg-6 col-md-6 col-12">
-                                            <label for="cidade">Cidade:</label>
+                                            <label for="cidade-update">Cidade:</label>
                                             <select class="form-select" id="cidade-update" name="cidade">
-                                                <option selected>Selecione a cidade do cliente</option>
-                                                <option value="Fortaleza">Fortaleza</option>
-                                                <option value="Eusébio">Eusébio</option>
+                                                <option selected>Atualize a cidade do cliente</option>
+
                                               </select>
                                         </div>
                                     </div>
@@ -89,6 +87,13 @@
 
         $(document).ready(function(){
             let id 
+            let nome_update
+            let cpf_update
+            let data_nascimento_update
+            let sexo_update
+            let endereco_update
+            let estado_update
+            let cidade_update
             let url = window.location.href;
             let numero = url.match(/\d+$/);
             if (numero !== null) {
@@ -104,13 +109,22 @@
                 success: function(response) {
                     hideLoading();
                     showToast(response);
-                    $("#nome-update").val(response.data.data[0].nome);
-                    $("#cpf-update").val(response.data.data[0].cpf);
-                    $("#data_nascimento-update").val(response.data.data[0].data_nascimento);
-                    $("#sexo-update").val(response.data.data[0].sexo);
-                    $("#endereco-update").val(response.data.data[0].endereco);
-                    $("#estado-update").val(response.data.data[0].estado);
-                    $("#cidade-update").val(response.data.data[0].cidade);
+
+                    nome_update = response.data.data[0].nome;
+                    cpf_update = response.data.data[0].cpf;
+                    data_nascimento_update = response.data.data[0].unformatted_date;
+                    sexo_update = response.data.data[0].sexo;
+                    endereco_update = response.data.data[0].endereco;
+                    estado_update = response.data.data[0].estado;
+                    cidade_update = response.data.data[0].cidade;
+
+                    $("#nome-update").val(nome_update);
+                    $("#cpf-update").val(cpf_update);
+                    $("#data_nascimento-update").val(data_nascimento_update);
+                    $("#sexo-update").val(sexo_update.toLowerCase());
+                    $("#endereco-update").val(endereco_update);
+                    $("#estado-update").val(estado_update);
+                    $("#cidade-update").val(cidade_update);
                 },
                 error: function(error) {
                     hideLoading();
@@ -146,6 +160,68 @@
                     }
                 });
             });
+
+
+            $("#estado-update").change(function() {
+                if ($(this).val()) {
+                    let sigla_estado = $(this).val();
+
+                    $.ajax({
+                        method: "GET",
+                        url: `/api/resources/cidades/?uf=${sigla_estado}`,
+                        success: (e) => {
+                            $("#cidade-update").html("");
+                            e.data.forEach(element => {
+                                $("#cidade-update").append(
+                                    `<option value="${element.m_nome}">${element.m_nome}</option>`
+                                )
+                            });
+
+                        }
+                    })
+                }
+            })
+
+            $.ajax({
+                method: "GET",
+                url: `/api/resources/estados`,
+                success: (e) => {
+                    e.data.forEach(estado => {
+                        $("#estado-update").append(
+                            `<option value="${estado.uf_sigla}">${estado.uf_sigla}</option>`
+                        )
+                        if (estado.uf_sigla == estado_update) {
+                            $("#estado-update").append(
+                                `<option value="${estado.uf_sigla}" selected>${estado.uf_sigla}</option>`
+                            )
+                        }
+                    })
+
+                    $.ajax({
+                        method: "GET",
+                        url: "/api/resources/cidades?uf=CE",
+                        success: (e) => {
+                            e.data.forEach(cidade => {
+                                $("#cidade-update").append(
+                                    `<option value="${cidade.m_nome}">${cidade.m_nome}</option>`
+                                )
+                                if (cidade.m_nome == cidade_update) {
+                                    $("#cidade-update").append(
+                                        `<option value="${cidade.m_nome}" selected>${cidade.m_nome}</option>`
+                                    )
+                                }
+                            })
+                        },
+                        error: (e) => {
+                            showToast(JSON.parse(e.responseText))
+                        }
+                    })
+                },
+                error: (e) => {
+                    showToast(JSON.parse(e.responseText))
+                }
+            })
+
         });
 
     </script> 
