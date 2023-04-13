@@ -29,7 +29,9 @@ git clone https://github.com/YolandoQ/test-solution.git
 ```
 
 ##### Suba o serviço
-Com o Docker-compose instalado, execute esse comando na raiz do projeto:
+###### Primeiro verifique se a pasta "db_data" está criada na raiz do projeto, ela vai servir para persistência dos dados do MySQL.
+
+Em seguida, com o Docker-compose instalado, execute esse comando na raiz do projeto:
 
 ```sh
 docker-compose up -d
@@ -39,13 +41,18 @@ docker-compose up -d
 Com o container rodando, execute esse comando na raiz do projeto:
 
 ```sh
-docker exec -it app-udp8 bash
+docker exec -it app-upd8 bash
 ```
 ##### Configure o .env
-Se não tiver alterado nada, o .env ja vai estar configurado depois de rodar esse comando:
+Se não tiver alterado nada, o .env ja vai estar configurado depois de rodar esses comandos:
 
 ```sh
 cp .env.example .env
+```
+
+
+```sh
+php artisan key:generate
 ```
 
 ##### Instale as dependências

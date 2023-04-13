@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Client as Model;
+use Carbon\Carbon;
 
 class ClientController extends Controller
 {
@@ -167,6 +168,14 @@ class ClientController extends Controller
                     $where->orWhere($column, "LIKE", "%" . $value . "%");
                 }
             })->orderByDesc("id")->paginate(10);
+
+
+            $clientsData->each(function($uniqueClient) {
+               
+                $uniqueClient->sexo = ucfirst($uniqueClient->sexo);
+                $uniqueClient->data_nascimento = Carbon::createFromFormat("Y-m-d", $uniqueClient->data_nascimento)->format("d/m/Y");
+            });
+
     
             foreach ($params as $key => $value) {
                 $clientsData->appends([$key => $value]);

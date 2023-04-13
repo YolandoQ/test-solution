@@ -17,8 +17,10 @@ function getPage(page, unique) {
                 $("tbody").append(`
                     <tr id=${element.id}>
                         <td>
-                            <button type="button" onclick="redirectUpdate(${element.id})" class="btn btn-primary">Atualizar</button>
-                            <button type="button" onclick="deletarCadastro(${element.id})" class="btn btn-danger ms-2">Deletar</button>
+                        <div class="d-flex">
+                            <button type="button" onclick="redirectUpdate(${element.id})" class="btn btn-primary" title="Editar"><i class="bi bi-pencil-square"></i></button>
+                            <button type="button" onclick="deletarCadastro(${element.id})" class="btn btn-danger ms-1" title="Excluir"><i class="bi bi-trash"></i></button>
+                        </div>
                         </td>
                         <td>${element.nome}</td>
                         <td>${element.cpf}</td>

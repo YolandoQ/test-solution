@@ -141,14 +141,14 @@
                                 <table class="table table-responsive" id="example">
                                     <thead>
                                         <tr>
-                                            <th>Ações</th>
-                                            <th>Nome</th>
-                                            <th>CPF</th>
-                                            <th>Sexo</th>
-                                            <th>Nascimento</th>
-                                            <th>Endereço</th>
-                                            <th>Cidade</th>
-                                            <th>Estado</th>
+                                            <th width="10%">Ações</th>
+                                            <th width="12.5%">Nome</th>
+                                            <th width="12.5%">CPF</th>
+                                            <th width="10%">Sexo</th>
+                                            <th width="12.5%">Nascimento</th>
+                                            <th width="22.5%">Endereço</th>
+                                            <th width="12%">Cidade</th>
+                                            <th width="10%">Estado</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -206,7 +206,9 @@
                     success: function(response) {
                         hideLoading();
                         showToast(response);
-                        document.getElementById("cad-form").reset();
+                        setTimeout(() => {
+                            window.location.reload();
+                        }, 800);
                     },
                     error: function(error) {
                         hideLoading();
