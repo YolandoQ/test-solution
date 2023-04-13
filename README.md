@@ -1,4 +1,4 @@
-# API de gerenciamento de dispositivos IoT
+# Sistema de gerenciamento de clientes
 ## Contexto
 Implementar em laravel uma API Rest para gerenciar clientes.
 
