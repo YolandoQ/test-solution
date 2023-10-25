@@ -50,11 +50,6 @@ Se não tiver alterado nada, o .env ja vai estar configurado depois de rodar ess
 cp .env.example .env
 ```
 
-
-```sh
-php artisan key:generate
-```
-
 ##### Instale as dependências
 Agora você pode executar:
 
@@ -69,8 +64,12 @@ São elas storage/logs e storage/framework, como estamos num ambiente de testes 
 chmod -R 777 storage/logs storage/framework
 ```
 
-##### Pra finalizar vamos rodar as migrations e a seeder
+##### Pra finalizar vamos gerar a chave da aplicação e também rodar as migrations e seeders
 Caso não tenha alterado credenciais nos arquivo do docker basta rodar os comandos de sempre:
+
+```sh
+php artisan key:generate
+```
 
 ```sh
 php artisan migrate
@@ -80,4 +79,4 @@ php artisan migrate
 php artisan db:seed
 ```
 
-Pronto, agora é só partir pro abraço, acesse o projeto na porta configurar(localhost:8000 e localhost:8080 - phpmyadmin(root: root, senha: secret) para acompamento-, se nada tiver sido alterado nos arquivos de configuração do docker).
+Pronto, agora é só partir pro abraço, acesse o projeto na porta configurada(localhost:8000 e localhost:8080 - phpmyadmin(root: root, senha: secret) para acompamento-, se nada tiver sido alterado nos arquivos de configuração do docker).
